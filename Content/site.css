@@ -1,0 +1,47 @@
+﻿body {
+}
+
+
+/* spacers*/
+.spacer-10 {
+	clear:both;
+	height: 10px;
+}
+.spacer-20 {
+	clear: both;
+	height: 20px;
+}
+.spacer-30 {
+	clear: both;
+	height: 30px;
+}
+.spacer-50 {
+	clear: both;
+	height: 50px;
+}
+
+/* Cookie Overlay */
+#cookie-overlay {
+	display: none;
+	text-align: center;
+	position: fixed;
+	min-height: 40px;
+	width: 100%;
+	bottom: 0;
+	z-index: 99;
+	font-size: 14px;
+	color: white;
+	background-color: #024f85;
+	/*background-color: rgba(2,79,133,0.5);*/
+}
+
+	#cookie-overlay .content {
+		margin-top: 10px;
+		margin-bottom: 5px;
+	}
+
+	#cookie-overlay button {
+		margin-left: 20px;
+		padding: 2px 20px;
+		font-weight: bold;
+	}

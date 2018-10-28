@@ -1,0 +1,46 @@
+﻿@using System.Data
+@model System.Data.DataTable
+
+@{
+	ViewBag.Title = "Students Index";
+}
+
+<div class="container">
+	<h2 class="mt-5">Student-List</h2>
+	<form method="post" name="Display">
+		@Html.ActionLink("Add New Student", "Insert")
+		<br />
+		<br />
+		@{
+			if (Model.Rows.Count > 0)
+			{
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Student ID</th>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Gender</th>
+							<th colspan="2" style="text-align:center;">Edit</th>
+						</tr>
+					</thead>
+					@foreach (DataRow std in Model.Rows)
+					{
+						<tr>
+							<td>@std["StudentId"].ToString() </td>
+							<td>@std["StudentName"].ToString() </td>
+							<td>@std["StudentAge"].ToString() </td>
+							<td>@std["StudentGender"].ToString() </td>
+							<td>@Html.ActionLink("Edit", "Edit", new { StudentId = std["StudentId"].ToString() })</td>
+							<td>@Html.ActionLink("Delete", "Delete", new { StudentId = std["StudentId"].ToString() }, new { onclick = "return confirm('Are you sure you want to delete Student: "+ std["StudentName"].ToString() + "?');" })</td>
+						</tr>
+					}
+				</table>
+			}
+			else
+			{
+				<h3 class="mt-5"> No records found!!</h3>
+			}
+		}
+	</form>
+</div>

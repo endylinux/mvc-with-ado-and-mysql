@@ -1,0 +1,64 @@
+﻿
+@{
+	ViewBag.Title = "Create Student";
+}
+
+<div class="container">
+	<h2>Insert a new Student</h2>
+	<form class="form-horizontal" id="frmDetail" method="post" action="@Url.Action("InsertRecord")" novalidate>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label" for="name">Name:</label>
+			<div class="col-sm-6">
+				<input type="text" name="txtName" class="form-control" id="name" required />
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label" for="age">Age:</label>
+			<div class="col-sm-6">
+				<input name="txtAge" type="number" class="form-control" id="age" required />
+			</div>
+		</div>
+
+		<fieldset class="form-group">
+			<div class="row">
+				<legend class="col-sm-2 col-form-label pt-0">Select Gender:</legend>
+				<div class="col-sm-6">
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="txtGender" value="male" id="genderMale" required />
+						<label class="form-check-label" for="genderMale">Male</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="txtGender" value="female" id="genderFemale" required />
+						<label class="form-check-label" for="genderFemale">Female</label>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		
+		<div class="form-group row">
+			<div class="col-sm-2">&nbsp;</div>
+			<div class="col-sm-6">
+				<button type="submit" value="Submit" class="btn btn-default" name="action">Submit</button>
+				<button type="reset" value="Cancel" class="btn btn-default" name="action">Cancel</button>
+				<button onclick="location.href='@Url.Action("Index", "Student")';return false;" value="GoBack" class="btn btn-default">Go Back</button>
+			</div>
+		</div>
+	</form>
+</div>
+<script>
+	// Custom JavaScript for Validation
+	(function () {
+		"use strict";
+		window.addEventListener("load", function () {
+			var form = document.getElementById("frmDetail");
+			form.addEventListener("submit", function (event) {
+				if (form.checkValidity() == false) {
+					event.preventDefault();
+					event.stopPropagation();
+				}
+				form.classList.add("was-validated");
+			}, false);
+		}, false);
+	}());
+</script>

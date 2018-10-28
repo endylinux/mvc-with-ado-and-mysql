@@ -1,0 +1,44 @@
+﻿
+@{ 
+var host = HttpContext.Current.Request.Url.Host;
+}
+
+<div id="cookie-overlay" class="cookie-overlay box">
+	<div class="content">
+		Diese Website benutzt Cookies. Warum? Klicken Sie <a href="/Home/About">HIER</a> für weitere Informationen.
+		<button onclick="buttonClick();" class="btn btn-default btn-xs" type="button">
+			OK
+		</button>
+	</div>
+</div>
+<script type="text/javascript" src="~/Scripts/cookie.js"></script>
+<script type="text/javascript">
+	var cookie = new Cookie();
+	$(document).ready(function () {
+		var expirationDay = 365;
+
+		cookie.key = "cookieOverlayAgreed";
+		cookie.value = "true";
+		cookie.domain = ".@host";
+		cookie.path = "/";
+		cookie.expires = expirationDay * 86400000;
+
+		if (cookie.isSet()) {
+			closeOverlay();
+		} else {
+			showOverlay();
+		}
+	});
+
+	function buttonClick() {
+		cookie.setCookie();
+		closeOverlay();
+	}
+
+	function closeOverlay() {
+		$("#cookie-overlay").hide();
+	}
+	function showOverlay() {
+		$("#cookie-overlay").show();
+	}
+</script>
