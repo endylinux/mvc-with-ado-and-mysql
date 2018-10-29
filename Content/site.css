@@ -31,8 +31,8 @@
 	z-index: 99;
 	font-size: 14px;
 	color: white;
-	background-color: #024f85;
-	/*background-color: rgba(2,79,133,0.5);*/
+	/*background-color: #024f85;*/
+	background-color: rgb(128, 128, 128, 0.8);
 }
 
 	#cookie-overlay .content {
@@ -44,4 +44,9 @@
 		margin-left: 20px;
 		padding: 2px 20px;
 		font-weight: bold;
+	}
+
+	#cookie-overlay a {
+		text-decoration: underline;
+		color: #024f85;
 	}
