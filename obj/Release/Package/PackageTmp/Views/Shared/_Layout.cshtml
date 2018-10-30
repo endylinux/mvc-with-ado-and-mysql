@@ -2,18 +2,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121629535-1"></script>
+	@*<!-- Global site tag (gtag.js) - Google Analytics -->*@
+	@*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121629535-1"></script>
 	<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-  gtag('config', 'UA-121629535-1');
-	</script>
+		gtag('config', 'UA-121629535-1');
+	</script>*@
+
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewBag.Title</title>
+	@*<title>@ViewBag.Title</title>*@
+	@RenderSection("metatags", false)
 
 	@Styles.Render("~/Content/css")
 	@*@Scripts.Render("~/bundles/modernizr")*@
@@ -28,6 +30,9 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item @Html.IsActive("Home","Index")">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 				<li class="nav-item @Html.IsActive("Student","Index")">@Html.ActionLink("Student-List", "Index", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+				<li class="nav-item @Html.IsActive("Video","Index")">@Html.ActionLink("Youtube", "Index", "Video", new { area = "" }, new { @class = "nav-link" })</li>
+
+
 				<li class="nav-item @Html.IsActive("Home","About")">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 				<li class="nav-item @Html.IsActive("Home","Contact")">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 			</ul>
