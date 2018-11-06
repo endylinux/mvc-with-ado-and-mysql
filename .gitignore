@@ -1,5 +1,8 @@
 /.vs
 /connection-string.xml
 /web.config
+<<<<<<< HEAD
 /bin
 /obj
+=======
+>>>>>>> f1eafe07261440c514642739e17e43ae7bac9f80
