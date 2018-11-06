@@ -1,2 +1,5 @@
 /.vs
 /connection-string.xml
+/web.config
+/bin
+/obj

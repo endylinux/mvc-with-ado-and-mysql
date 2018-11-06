@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MVCWithADO.Models.MenuViewModel>
+@using MVCWithADO.Models
+
+<div class="navbar-collapse collapse" id="mainNav">
+	<div class="navbar-nav mr-auto">
+		@foreach(MenuViewModel menu in Model)
+		{
+			if(menu.SubMenu != null)
+			{
+				<li class="nav-item">
+					@if (menu.IsAction)
+					{
+						<a href="@Url.Action(menu.Action, menu.Controller)" class="@menu.Class"> @Html.Raw(menu.Title)</a>
+					}
+					else
+					{
+						<a href="@Html.Raw(menu.Link)" class="@menu.Class" data-toggle="dropdown"> @Html.Raw(menu.Title)</a>
+					}
+						<div class="dropdown-menu">
+							@foreach (MenuViewModel subMenu in menu.SubMenu)
+							{
+								if (subMenu.IsAction)
+								{
+								<a href="@Url.Action(subMenu.Action, subMenu.Controller)" class="dropdown-item">@subMenu.Title</a>
+							}
+							else
+							{
+								<a href="@Html.Raw(subMenu.Link)" class="dropdown-item"> @Html.Raw(subMenu.Title)</a>
+							}
+						}
+					</div>
+				</li>
+			}
+			else
+			{
+				if (menu.IsAction)
+				{
+					<li><a href="@Url.Action(menu.Action, menu.Controller)" class="@menu.Class"> @Html.Raw(menu.Title)</a></li>
+				}
+				else
+				{
+					<li><a href="@Html.Raw(menu.Link)" class="@menu.Class"> @Html.Raw(menu.Title)</a></li>
+				}
+			}
+		}
+	</ul>
+	<div class="clearfix"></div>
+</div>
+
+	<!--- Sidemenu -->
+@*<div id="sidebar-menu">
+	<ul>
+		<li>
+			<a href="#">Dashboard</a>
+		</li>
+
+		<li class="has_sub">
+			<a href="#">Application Setup</a>
+			<ul class="list-unstyled">
+				<li><a href="#">User Manager</a></li>
+				<li><a href="#">Manage User</a></li>
+				<li><a href="#">Change Password</a></li>
+				<li><a href="#">Logoff</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>*@
+<!-- Sidebar -->

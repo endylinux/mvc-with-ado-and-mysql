@@ -9,18 +9,43 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2 class="mt-5">Hello to my Start-Page</h2>
+			<h2 class="mt-5">Welcome on my Test-Page</h2>
 			<div class="spacer-20"></div>
 			<div>
 				<p>
-					This is my Start-Page and here i should post more things about me, maybe some other stuff too!
+					This is my Test-Page and here i should post more things about me, maybe some other stuff too!<br />
+					Please don't take it serious how I'm writing, because this is just a test page, like i said before.
 				</p>
 				<p>
 					My first Object was to create an ASP.NET MVC application with simple ADO.NET and a MySQL Database, since 1und1.de offers more space for MySQL than MSSQL.
 				</p>
 				<p>
-					If you want to check my code, you can do this in Github. Here is the link to my Github repository: <a href="https://github.com/endylinux/mvc-with-ado-and-mysql" target="_blank">mvc-with-ado-and-mysql</a>
+					If you want to check my code, you can do this on Github. Here is the link: <a href="https://github.com/endylinux/mvc-with-ado-and-mysql" target="_blank">mvc-with-ado-and-mysql</a>
 				</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="spacer-50"></div>
+			<h2>See my Shop</h2>
+			<div class="spacer-20"></div>
+			<p>You can also see my Shop on <a href="http://shop.habrony.de" target="_blank">shop.habrony.de</a></p>
+			<p>This one is still under construction!</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="btn-toolbar" role="toolbar">
+			<div class="btn-group">
+				<a href="@Url.Action("Storage","Home")" class="btn btn-default">
+					<span class="fa fa-cloud"></span>
+				</a>
+				<a href="@Url.Action("Alerts", "Home")" class="btn btn-default">
+					<span class="fa fa-bell"></span>
+				</a>
+				<a href="@Url.Action("Cart", "Home")" class="btn btn-default">
+					<span class="fa fa-shopping-cart"></span>
+				</a>
 			</div>
 		</div>
 	</div>

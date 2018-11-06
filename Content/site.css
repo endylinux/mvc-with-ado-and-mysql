@@ -1,20 +1,39 @@
-﻿body {
+﻿html {
+	position: relative;
+	min-height: 100%;
 }
 
+body {
+	margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	min-height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: white;
+	background-color: #434548;
+}
 
 /* spacers*/
 .spacer-10 {
-	clear:both;
+	clear: both;
 	height: 10px;
 }
+
 .spacer-20 {
 	clear: both;
 	height: 20px;
 }
+
 .spacer-30 {
 	clear: both;
 	height: 30px;
 }
+
 .spacer-50 {
 	clear: both;
 	height: 50px;
@@ -32,21 +51,50 @@
 	font-size: 14px;
 	color: white;
 	/*background-color: #024f85;*/
-	background-color: rgb(128, 128, 128, 0.8);
+	background-color: rgba(128, 128, 128, 0.8);
 }
 
-	#cookie-overlay .content {
-		margin-top: 10px;
-		margin-bottom: 5px;
-	}
+#cookie-overlay .content {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
 
-	#cookie-overlay button {
-		margin-left: 20px;
-		padding: 2px 20px;
-		font-weight: bold;
-	}
+#cookie-overlay button {
+	margin-left: 20px;
+	padding: 2px 20px;
+	font-weight: bold;
+}
 
-	#cookie-overlay a {
-		text-decoration: underline;
-		color: #024f85;
-	}
+#cookie-overlay a {
+	text-decoration: underline;
+	color: #024f85;
+}
+
+/** Footer ***/
+
+
+/*** Menu ***/
+.navbar-nav .dropdown-menu {
+	left: auto;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+	background-color: rgba(128, 128, 128, 0.8);
+	color: white;
+}
+
+
+/*** Video ***/
+#videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 25px;
+	height: 0;
+}
+#videoWrapper iframe {
+	width: 100% !important;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
