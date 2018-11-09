@@ -6,6 +6,14 @@
 }
 
 <div class="container">
+	@{ 
+		if(HttpContext.Current.Request.UserHostAddress.Contains("127.0.0.1") ||
+			HttpContext.Current.Request.UserHostAddress.Contains("109.192.57.224") ||
+			HttpContext.Current.Request.UserHostAddress.Contains("217.7.57.146"))
+		{
+			<div class="alert-success tracking-message"><span>Your ip address "@HttpContext.Current.Request.UserHostAddress" is on the exlude list. It will be not stored in this database!</span></div>
+		}
+	}
 	<h1 class="mt-5">Tracking List</h1>
 
 	<article>
@@ -13,41 +21,50 @@
 	</article>
 
 	<div class="table-responsive">
-		@{ 
+		@{
 			if (Model.Rows.Count > 0)
 			{
 
-		<table class="table">
-			<thead>
-				<tr>
-					<td>&nbsp;</td>
-					<td>IP-Address</td>
-					<td>Duration</td>
-					<td>Controller</td>
-					<td>Action</td>
-					<td>Date of Creation in timestamp</td>
-					<td>Time</td>
-				</tr>
-			</thead>
-			@{var cntr = 1;}
-			@foreach (DataRow tr in Model.Rows)
-			{
-				Int64 intDate = (long)tr["CreatedAt"];
-				DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Local);
-				DateTime convertedTime = dateTime.AddSeconds(intDate);
-				<tr>
-					<td>@cntr</td>
-					<td>@tr["IpAddress"]</td>
-					<td>@tr["Duration"]</td>
-					<td>@tr["Controller"]</td>
-					<td>@tr["Action"]</td>
-					<td>@tr["CreatedAt"]</td>
-					<td>@convertedTime.ToString()</td>
-				</tr>
-				{ cntr++; }
-			}
+				<table class="table">
+					<thead>
+						<tr>
+							<td>&nbsp;</td>
+							<td>IP-Address</td>
+							<td>Duration</td>
+							<td>Controller</td>
+							<td>Action</td>
+							<td>Date of Creation in timestamp</td>
+							<td>Time</td>
+						</tr>
+					</thead>
+					@{var cntr = 1;}
+					@foreach (DataRow tr in Model.Rows)
+					{
+						Int64 intDate = (long)tr["CreatedAt"];
+						DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Local);
+						DateTime convertedTime = dateTime.AddSeconds(intDate);
+						<tr>
+							<td>@cntr</td>
+							<td>@tr["IpAddress"]</td>
+							<td>@tr["Duration"]</td>
+							<td>@tr["Controller"]</td>
+							<td>@tr["Action"]</td>
+							<td>@tr["CreatedAt"]</td>
+							<td>@convertedTime.ToString()</td>
+						</tr>
+						{ cntr++; }
+					}
 
-		</table>
+
+				</table>
+			}
+			else
+			{
+				<div class="spacer-50"></div>
+				<div class="alert-info tracking-message">
+
+					<span>There is no entry into the database, maybe it was truncated again!</span>
+				</div>
 			}
 		}
 	</div>

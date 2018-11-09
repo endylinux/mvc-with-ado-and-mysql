@@ -38,6 +38,7 @@ namespace MVCWithADO.Controllers
 		public ActionResult TrackingList()
 		{
 			TrackingViewModel trackingModel = new TrackingViewModel();
+			trackingModel.IpAddress.Add("127.0.0.1");
 			DataTable dt = trackingModel.GetAllTrackingStates();
 			return View("TrackingList", dt);
 		}

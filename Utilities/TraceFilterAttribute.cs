@@ -15,6 +15,7 @@ namespace MVCWithADO.Utilities
 	[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
 	public sealed class TraceFilterAttribute : ActionFilterAttribute
 	{
+
 		private string Parameter { get; set; }
 		private ActionDescriptor CurrentAction { get; set; }
 		//private DateTime start_time;
@@ -27,11 +28,16 @@ namespace MVCWithADO.Utilities
 			stopwatch.Start();
 		}
 
+		
 		public override void OnResultExecuted(ResultExecutedContext filterContext)
 		{
 			stopwatch.Stop();
 			string hostName = Dns.GetHostName();
-			string ipAddress = HttpContext.Current.Request.UserHostAddress.ToString();
+		string ipAddress = HttpContext.Current.Request.UserHostAddress.ToString();
+			if(ipAddress == "127.0.0.1" || ipAddress == "109.192.57.224" || ipAddress == "217.7.57.146")
+			{
+				return;
+			}
 			RouteData routeData = filterContext.RouteData;
 			long duration = stopwatch.ElapsedMilliseconds;
 			string controller = (string)routeData.Values["controller"];
