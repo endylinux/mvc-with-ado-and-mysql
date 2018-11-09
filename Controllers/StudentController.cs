@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data.SqlClient;
 using MVCWithADO.Models;
 using System.Data;
+using MVCWithADO.Utilities;
 
 namespace MVCWithADO.Controllers
 {
@@ -15,6 +16,7 @@ namespace MVCWithADO.Controllers
 		/// Get all Students from the DB
 		/// </summary>
 		/// <returns>Index View</returns>
+		[TraceFilter]
 		public ActionResult Index()
 		{
 			StudentModel studModel = new StudentModel();
@@ -26,6 +28,7 @@ namespace MVCWithADO.Controllers
 		/// Action method, called when the "Add New Record" link clicked
 		/// </summary>
 		/// <returns>Create View</returns>
+		[TraceFilter]
 		public ActionResult Insert()
 		{
 			return View("Create");
@@ -37,7 +40,7 @@ namespace MVCWithADO.Controllers
 		/// <param name="frm">Form Collection Object</param>
 		/// <param name="action">Used to differentiate between "Submit" and "Cancel"</param>
 		/// <returns></returns>
-		[HttpPost]
+		[HttpPost][TraceFilter]
 		public ActionResult InsertRecord(FormCollection frm, string action)
 		{
 			if (action == "Submit")
@@ -60,6 +63,7 @@ namespace MVCWithADO.Controllers
 		/// </summary>
 		/// <param name="StudentID">Student ID</param>
 		/// <returns>Edit View</returns>
+		[TraceFilter]
 		public ActionResult Edit(int StudentID)
 		{
 			StudentModel model = new StudentModel();
@@ -73,6 +77,7 @@ namespace MVCWithADO.Controllers
 		/// <param name="frm">Form Collection</param>
 		/// <param name="action">Denotes the action</param>
 		/// <returns>Index View</returns>
+		[TraceFilter]
 		public ActionResult UpdateRecord(FormCollection frm, string action)
 		{
 			if(action == "Submit")
@@ -96,6 +101,7 @@ namespace MVCWithADO.Controllers
 		/// </summary>
 		/// <param name="StudentId">Student ID to edit</param>
 		/// <returns>Index View</returns>
+		[TraceFilter]
 		public ActionResult Delete(int StudentId)
 		{
 			StudentModel model = new StudentModel();

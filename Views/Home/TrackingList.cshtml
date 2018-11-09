@@ -1,0 +1,48 @@
+﻿@using System.Data
+@model System.Data.DataTable
+
+@{ 
+	ViewBag.Title = "Tracking-List";
+}
+
+<div class="container">
+	<h1 class="mt-5">Tracking List</h1>
+
+	<article>
+		<p>I've created a filter action method for tracking user and store the ip address, action, controller and creation time into the database.</p>
+	</article>
+
+	<div class="table-responsive">
+		@{ 
+			if(Model.Rows.Count > 0)
+			{
+				<table class="table">
+					<thead>
+						<tr>
+							<td>IP-Address</td>
+							<td>Duration</td>
+							<td>Controller</td>
+							<td>Action</td>
+							<td>Date of Creation in timestamp</td>
+							<td>Time</td>
+						</tr>
+					</thead>
+					@foreach(DataRow tr in Model.Rows)
+					{
+						Int64 intDate = (long)tr["CreatedAt"];
+						DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Local);
+						DateTime convertedTime = dateTime.AddSeconds(intDate);
+						<tr>
+							<td>@tr["IpAddress"]</td>
+							<td>@tr["Duration"]</td>
+							<td>@tr["Controller"]</td>
+							<td>@tr["Action"]</td>
+							<td>@tr["CreatedAt"]</td>
+							<td>@convertedTime.ToString()</td>
+						</tr>
+					}
+				</table>
+			}
+		}
+	</div>
+</div>

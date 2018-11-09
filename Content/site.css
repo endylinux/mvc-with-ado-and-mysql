@@ -17,6 +17,9 @@ body {
 	color: white;
 	background-color: #434548;
 }
+.footer p {
+	margin-bottom:0;
+}
 
 /* spacers*/
 .spacer-10 {
@@ -74,6 +77,7 @@ body {
 
 
 /*** Menu ***/
+
 .navbar-nav .dropdown-menu {
 	left: auto;
 }

@@ -28,6 +28,9 @@ namespace MVCWithADO.Controllers
 			subMenu = new MenuViewModel() { Action = "Index", Controller = "Video", IsAction = true, Class = "dropdown-item", SubMenu = null, Title = "Youtube-List" };
 			menu.SubMenu.Add(subMenu);
 
+			subMenu = new MenuViewModel() { Action = "TrackingList", Controller = "Home", IsAction = true, Class = "dropdown-item", SubMenu = null, Title = "Tracking-List" };
+			menu.SubMenu.Add(subMenu);
+
 			menu = new MenuViewModel() { MenuId = 3, Action = "About", Controller = "Home", IsAction = true, Class = "nav-link", SubMenu = null, Title = "About Me" };
 			menuViewModel.Add(menu);
 
