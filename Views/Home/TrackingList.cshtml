@@ -14,34 +14,40 @@
 
 	<div class="table-responsive">
 		@{ 
-			if(Model.Rows.Count > 0)
+			if (Model.Rows.Count > 0)
 			{
-				<table class="table">
-					<thead>
-						<tr>
-							<td>IP-Address</td>
-							<td>Duration</td>
-							<td>Controller</td>
-							<td>Action</td>
-							<td>Date of Creation in timestamp</td>
-							<td>Time</td>
-						</tr>
-					</thead>
-					@foreach(DataRow tr in Model.Rows)
-					{
-						Int64 intDate = (long)tr["CreatedAt"];
-						DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Local);
-						DateTime convertedTime = dateTime.AddSeconds(intDate);
-						<tr>
-							<td>@tr["IpAddress"]</td>
-							<td>@tr["Duration"]</td>
-							<td>@tr["Controller"]</td>
-							<td>@tr["Action"]</td>
-							<td>@tr["CreatedAt"]</td>
-							<td>@convertedTime.ToString()</td>
-						</tr>
-					}
-				</table>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<td>&nbsp;</td>
+					<td>IP-Address</td>
+					<td>Duration</td>
+					<td>Controller</td>
+					<td>Action</td>
+					<td>Date of Creation in timestamp</td>
+					<td>Time</td>
+				</tr>
+			</thead>
+			@{var cntr = 1;}
+			@foreach (DataRow tr in Model.Rows)
+			{
+				Int64 intDate = (long)tr["CreatedAt"];
+				DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Local);
+				DateTime convertedTime = dateTime.AddSeconds(intDate);
+				<tr>
+					<td>@cntr</td>
+					<td>@tr["IpAddress"]</td>
+					<td>@tr["Duration"]</td>
+					<td>@tr["Controller"]</td>
+					<td>@tr["Action"]</td>
+					<td>@tr["CreatedAt"]</td>
+					<td>@convertedTime.ToString()</td>
+				</tr>
+				{ cntr++; }
+			}
+
+		</table>
 			}
 		}
 	</div>
