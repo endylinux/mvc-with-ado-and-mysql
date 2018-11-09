@@ -28,7 +28,7 @@ namespace MVCWithADO.Controllers
 		/// Action method, called when the "Add New Record" link clicked
 		/// </summary>
 		/// <returns>Create View</returns>
-		[TraceFilter]
+
 		public ActionResult Insert()
 		{
 			return View("Create");
@@ -40,7 +40,7 @@ namespace MVCWithADO.Controllers
 		/// <param name="frm">Form Collection Object</param>
 		/// <param name="action">Used to differentiate between "Submit" and "Cancel"</param>
 		/// <returns></returns>
-		[HttpPost][TraceFilter]
+		[HttpPost]
 		public ActionResult InsertRecord(FormCollection frm, string action)
 		{
 			if (action == "Submit")

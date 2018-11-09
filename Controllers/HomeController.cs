@@ -35,7 +35,6 @@ namespace MVCWithADO.Controllers
 			return View();
 		}
 
-		[TraceFilter]
 		public ActionResult TrackingList()
 		{
 			TrackingViewModel trackingModel = new TrackingViewModel();
