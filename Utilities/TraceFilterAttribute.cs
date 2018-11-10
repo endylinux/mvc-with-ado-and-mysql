@@ -1,10 +1,6 @@
 ﻿using MVCWithADO.Models;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -18,23 +14,21 @@ namespace MVCWithADO.Utilities
 
 		private string Parameter { get; set; }
 		private ActionDescriptor CurrentAction { get; set; }
-		//private DateTime start_time;
 		private Stopwatch stopwatch;
 
 		public override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
-			//start_time = DateTime.Now;
 			stopwatch = new Stopwatch();
 			stopwatch.Start();
 		}
 
-		
+
 		public override void OnResultExecuted(ResultExecutedContext filterContext)
 		{
 			stopwatch.Stop();
 			string hostName = Dns.GetHostName();
-		string ipAddress = HttpContext.Current.Request.UserHostAddress.ToString();
-			if(ipAddress == "127.0.0.1" || ipAddress == "109.192.57.224" || ipAddress == "217.7.57.146")
+			string ipAddress = HttpContext.Current.Request.UserHostAddress.ToString();
+			if ((ipAddress == "127.0.0.1") || (ipAddress == "109.192.57.224") || (ipAddress == "217.7.57.146"))
 			{
 				return;
 			}

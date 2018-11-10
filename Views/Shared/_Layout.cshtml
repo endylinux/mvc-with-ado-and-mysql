@@ -1,4 +1,4 @@
-﻿@using MVCWithADO.Utilities
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,17 +15,6 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		@*<div class="navbar-collapse collapse" id="mainNav">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item @Html.IsActive("Home","Index")">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-				<li class="nav-item @Html.IsActive("Student","Index")">@Html.ActionLink("Student-List", "Index", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-				<li class="nav-item @Html.IsActive("Video","Index")">@Html.ActionLink("Youtube", "Index", "Video", new { area = "" }, new { @class = "nav-link" })</li>
-
-
-				<li class="nav-item @Html.IsActive("Home","About")">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-				<li class="nav-item @Html.IsActive("Home","Contact")">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-			</ul>
-		</div>*@
 		@Html.Action("Menu", "Navigation")
 	</nav>
 

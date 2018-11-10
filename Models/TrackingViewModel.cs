@@ -9,8 +9,6 @@ namespace MVCWithADO.Models
 {
 	public class TrackingViewModel
 	{
-		public List<string> IpAddress { get; set; }
-
 		public int InsertTrackingStates(string ipaddress, long duration, string controller, string action, long createdAt)
 		{
 			using (MySqlConnection conn = MyConnection.GetConnection())
@@ -39,7 +37,6 @@ namespace MVCWithADO.Models
 				da.Fill(dt);
 				conn.Close();
 			}
-
 			return dt;
 		}
 	}

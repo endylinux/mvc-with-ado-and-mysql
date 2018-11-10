@@ -41,8 +41,8 @@
 					@foreach (DataRow tr in Model.Rows)
 					{
 						Int64 intDate = (long)tr["CreatedAt"];
-						DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Local);
-						DateTime convertedTime = dateTime.AddSeconds(intDate);
+						DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+						DateTime convertedTime = dateTime.AddSeconds(intDate).ToLocalTime();
 						<tr>
 							<td>@cntr</td>
 							<td>@tr["IpAddress"]</td>
